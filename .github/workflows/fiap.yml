@@ -1,5 +1,5 @@
 name: Meetap fiap
-on: [workflow_dispatch]
+on: [workflow_dispatch, pull_request]
 jobs:
   snyk:
     runs-on: ubuntu-latest
@@ -8,6 +8,6 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          FIAP_TOKEN: ${{ secrets.FIAP_TOKEN }}
         with:
           command: monitor
