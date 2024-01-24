@@ -1,5 +1,5 @@
 name: Meetap fiap
-on: push
+on: [workflow_dispatch]
 jobs:
   snyk:
     runs-on: ubuntu-latest
@@ -9,3 +9,5 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
