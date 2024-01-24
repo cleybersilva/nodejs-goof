@@ -1,10 +1,11 @@
-name: fiap-meetup
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: Meetap fiap
+on: push
 jobs:
-  info:
+  snyk:
     runs-on: ubuntu-latest
     steps:
-      - run: uname-a
-      - run: id
-      - run: env
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
