@@ -8,7 +8,7 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          FIAP_TOKEN: ${{ secrets.FIAP_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.FIAP_TOKEN }}
         with:
           command: monitor
   zap:
