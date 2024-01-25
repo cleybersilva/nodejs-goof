@@ -1,7 +1,7 @@
-name: Meetap fiap
-on: [workflow_dispatch, pull_request]
+name: Meetap FIAP
+on: [push, pull_request]
 jobs:
-  snyk:
+  devsecops:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -11,3 +11,11 @@ jobs:
           FIAP_TOKEN: ${{ secrets.FIAP_TOKEN }}
         with:
           command: monitor
+  zap:
+     runs-on: ubuntu-latest
+     steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.10.0
+        with:
+           target: 'https://owasp.org/www-project-juice-shop/'
+           
