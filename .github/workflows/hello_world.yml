@@ -1,0 +1,13 @@
+name: GHFC 223
+
+on: [push, workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    name: Job
+    steps:
+      - run: id
+      - run: uname -a
+      - run: env
+      - run: echo "hello GHFC!"
